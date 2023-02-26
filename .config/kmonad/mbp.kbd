@@ -1,0 +1,139 @@
+;; REF:
+;; - (KMonad Tutorial) https://raw.githubusercontent.com/kmonad/kmonad/master/keymap/tutorial.kbd
+;; - (Apple template) https://github.com/kmonad/kmonad/blob/master/keymap/template/apple.kbd
+;; - (Apple Keyboard blocking/ghosting issues)
+;;   - https://github.com/pqrs-org/Karabiner-Elements/issues/1454
+;;   - https://github.com/pqrs-org/Karabiner-Elements/issues/3133
+
+;; (See Apple Notes for getting KMonad installed on the M2 mac)
+
+;; Features:
+;; - based on KMonad Apple template https://github.com/kmonad/kmonad/blob/master/keymap/template/apple.kbd
+;; - home row mods
+;; - standard modifiers disable home row mods
+;; - navigation bar on space home
+;; - swap caps lock and escape
+
+;; TODO:
+;; - research dead keys elimination
+
+(defcfg 
+  input (iokit-name)
+  output (kext)
+  fallthrough true
+)
+
+(defsrc
+  esc    f1     f2     f3     f4     f5     f6     f7     f8     f9     f10    f11    f12
+  grv    1      2      3      4      5      6      7      8      9      0      -      =      bspc
+  tab    q      w      e      r      t      y      u      i      o      p      [      ]      \
+  caps   a      s      d      f      g      h      j      k      l      ;      '      ret
+  lsft   z      x      c      v      b      n      m      ,      .      /      rsft   up
+  Fn     lctl   lalt   lmet                 spc                  rmet   ralt   left   down   rght
+)
+
+(defalias
+  ;; Fn
+  Fn (around (layer-toggle function) Fn)
+
+  ;; Use home row mods
+  ctl_a (tap-hold-next-release 200 a lctl)
+  alt_s (tap-hold-next-release 200 s lalt)
+  met_d (tap-hold-next-release 200 d lmet)
+  sft_f (tap-hold-next-release 200 f lsft)
+  sft_j (tap-hold-next-release 200 j rsft)
+  met_k (tap-hold-next-release 200 k rmet)
+  alt_l (tap-hold-next-release 200 l lalt)
+  ctl_; (tap-hold-next-release 200 ; rctl)
+
+  ;; Use vanilla home row when holding standard modifiers
+  ;; Necessary because home row mods don't play nice with standard modifiers
+  lsft' (around (layer-toggle vanilla) lsft)
+  lctl' (around (layer-toggle vanilla) lctl)
+  lalt' (around (layer-toggle vanilla) lalt)
+  lmet' (around (layer-toggle vanilla) lmet)
+  rsft' (around (layer-toggle vanilla) rsft)
+  ralt' (around (layer-toggle vanilla) ralt)
+  rmet' (around (layer-toggle vanilla) rmet)
+
+  ;; Space for navigation layer
+  spc' (tap-hold-next-release 200 spc (layer-toggle navigation))
+)
+
+
+(deflayer default
+;; TODO: Missing function keys https://github.com/kmonad/kmonad/issues/418#issuecomment-969106029
+  caps   brdn   brup   expa   sptl   _      _      prvs   plps   nxsg   mute   vold   volu
+  _      _      _      _      _      _      _      _      _      _      _      _      _      _
+  _      _      _      _      _      _      _      _      _      _      _      _      _      _
+  esc    @ctl_a @alt_s @met_d @sft_f _      _     @sft_j @met_k @alt_l @ctl_;  _      _
+  @lsft' _      _      _      _      _      _      _      _      _      _      @rsft' _
+  @Fn    @lctl' @lalt' @lmet'               @spc'                @rmet' @ralt' _      _      _
+)
+
+(deflayer function
+  _      f1     f2     f3     f4     f5     f6     f7     f8     f9     f10    f11    f12
+  _      _      _      _      _      _      _      _      _      _      _      _      _      del
+  _      _      _      _      _      _      _      _      _      _      _      _      _      _
+  _      _      _      _      _      _      _      _      _      _      _      _      _
+  _      _      _      _      _      _      _      _      _      _      _      _      _
+  _      _      _      _                    _                    _      _      _      _      _
+)
+
+(deflayer vanilla
+  _      _      _      _      _      _      _      _      _      _      _      _      _
+  _      _      _      _      _      _      _      _      _      _      _      _      _      _
+  _      _      _      _      _      _      _      _      _      _      _      _      _      _
+  _      a      s      d      f      _      _      j      k      l      ;      _      _
+  _      _      _      _      _      _      _      _      _      _      _      _      _
+  _      _      _      _                    _                    _      _      _      _      _
+)
+
+(deflayer vanilla_lx
+  _      _      _      _      _      _      _      _      _      _      _      _      _
+  _      _      _      _      _      _      _      _      _      _      _      _      _      _
+  _      _      _      _      _      _      _      _      _      _      _      _      _      _
+  _      a      s      d      f      _      _      _      _      _      _      _      _
+  _      _      _      _      _      _      _      _      _      _      _      _      _
+  _      _      _      _                    _                    _      _      _      _      _
+)
+
+(deflayer vanilla_rx
+  _      _      _      _      _      _      _      _      _      _      _      _      _
+  _      _      _      _      _      _      _      _      _      _      _      _      _      _
+  _      _      _      _      _      _      _      _      _      _      _      _      _      _
+  _      -      _      _      _      _      _      j      k      l      ;      _      _
+  _      _      _      _      _      _      _      _      _      _      _      _      _
+  _      _      _      _                    _                    _      _      _      _      _
+)
+
+(deflayer navigation
+  _      _      _      _      _      _      _      _      _      _      _      _      _  
+  _      _      _      _      _      _      _      _      _      _      _      _      _      _
+  _      _      _      _      _      _      pgup   home   up     end    _      _      _      _
+  _      _      _      _      _      _      pgdn   left   down   right  _      _      _
+  _      _      _      _      _      _      _      _      _      _      _      _      _
+  _      _      _      _                    _                    _      _      _      _      _
+)
+
+;; #: From Andrea's kbd config
+
+;; Run with:
+;; sudo -E stack --allow-different-user exec kmonad -- -l debug -i "iokit-name" ~/.config/kmonad/layout.kbd
+;; Refs:
+;; - [Use multiple iokit-names in defsrc](https://github.com/kmonad/kmonad/issues/156)
+;; - [Script to run multiple instances of kmonad and restart if keycode errors encountered](https://github.com/kmonad/kmonad/issues/432)
+;; - [Unusable keyboard after kmonad crashes/gets interrupted](https://github.com/kmonad/kmonad/issues/159)
+
+;; Home row mods
+;; - Refs:
+;;   - https://precondition.github.io/home-row-mods#using-home-row-mods-with-kmonad
+;; - Issues when pressing other modifiers
+;;   - [#111 The shift key dilemma](https://github.com/kmonad/kmonad/issues/111)
+;;   - [#256 tap-next-release and order of release events](https://github.com/kmonad/kmonad/issues/256)
+;;   - [#272 Sticky Key & Tap-Release Button Incompatible](https://github.com/kmonad/kmonad/issues/272)
+;;   - [#307 tap-hold buttons may not work combined with other modifiers in some scenario](https://github.com/kmonad/kmonad/issues/307)
+;;   - [#316 Around next not working with tap-hold-next-release](https://github.com/kmonad/kmonad/issues/316)
+;; - Other issues:
+;;   - [#351 More Intelligent Dual-Role/Multi-Use Algorithm](https://github.com/kmonad/kmonad/issues/351)
+;;   - [#572 tap-hold-next takes into account previous key's release](https://github.com/kmonad/kmonad/issues/572)

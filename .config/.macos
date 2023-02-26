@@ -1,0 +1,42 @@
+#!/usr/bin/env bash
+
+# REFS:
+# - https://github.com/mathiasbynens/dotfiles/blob/main/.macos 
+
+// #: Start
+
+# Close any open System Preferences panes, to prevent them from overriding
+# settings we're about to change
+osascript -e 'tell application "System Preferences" to quit'
+
+# Ask for the administrator password upfront
+sudo -v
+
+# Keep-alive: update existing `sudo` time stamp until `.macos` has finished
+while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
+
+// #: TextEdit
+
+# Use plain text mode for new TextEdit documents
+defaults write com.apple.TextEdit RichText -int 0
+
+# Open and save files as UTF-8 in TextEdit
+defaults write com.apple.TextEdit PlainTextEncoding -int 4
+defaults write com.apple.TextEdit PlainTextEncodingForWrite -int 4
+
+# Open editor without asking for where to save
+# REF: https://apple.stackexchange.com/a/111755q
+defaults write com.apple.TextEdit NSShowAppCentricOpenPanelInsteadOfUntitledFile -bool false
+
+// #: End
+
+# Kill all affected apps
+# NOTE: How to list more
+# for app in "TextEdit" \
+# 	"Address Book" \
+# 	"Twitter" \
+# 	"iCal"; do
+for app in "TextEdit"; do
+	killall "${app}" &> /dev/null
+done
+echo "Done. Note that some of these changes require a logout/restart to take effect."
