@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+# REF: https://github.com/kmonad/kmonad/issues/334#issuecomment-1000106276
+
+open /Users/giacomoran/Zxtra/kmonad/c_src/mac/Karabiner-DriverKit-VirtualHIDDevice/dist/Karabiner-DriverKit-VirtualHIDDevice-1.15.0.pkg

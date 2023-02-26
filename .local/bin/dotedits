@@ -1,0 +1,17 @@
+#!/bin/bash
+
+# Required parameters:
+# @raycast.schemaVersion 1
+# @raycast.title Dotedits
+# @raycast.mode compact
+
+# Optional parameters:
+# @raycast.icon 🔘
+# @raycast.packageName Dotfiles
+
+# Documentation:
+# @raycast.description Open VSCode in $HOME, loading the dotfiles git repo
+# @raycast.author Giacomo Randazzo
+# @raycast.authorURL github.com/GiacomoRandazzo
+
+GIT_DIR=$HOME/.dotfiles/ GIT_WORK_TREE=$HOME code "$HOME" "$@"

@@ -36,3 +36,22 @@ REF:
 
 Make sure you set the Homebrew path to `pam_reattach.so`.
 If you get locked out use `su -` to fix the /etc/pam.d/sudo file (might need https://support.apple.com/en-us/HT204012)
+
+## Raycast
+
+Raycast picks up `sh` scripts in "Script Directories" with the necessary metadata.
+
+To add a script directory, go to Raycast Settings > Extensions > + > Add Script Directory.
+
+Add `.local/bin` as script directory to write scripts once that can be use in Raycast
+and in the terminal.
+
+REF: https://github.com/raycast/script-commands
+
+The Raycast settings are expoted in `.config/Raycast.rayconfig`, they are 
+password protected.
+
+## Tricks
+
+- **Download Github folders** Open in `github.dev` (navigate to the folder and press `.`). 
+  Select the folder in the VSCode sidebar, right click and `Download`.
