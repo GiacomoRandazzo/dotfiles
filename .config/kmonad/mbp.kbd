@@ -5,7 +5,7 @@
 ;;   - https://github.com/pqrs-org/Karabiner-Elements/issues/1454
 ;;   - https://github.com/pqrs-org/Karabiner-Elements/issues/3133
 
-;; (See Apple Notes for getting KMonad installed on the M2 mac)
+;; (See ~/README.md for getting KMonad installed on the M2 mac)
 
 ;; Features:
 ;; - based on KMonad Apple template https://github.com/kmonad/kmonad/blob/master/keymap/template/apple.kbd
@@ -13,9 +13,6 @@
 ;; - standard modifiers disable home row mods
 ;; - navigation bar on space home
 ;; - swap caps lock and escape
-
-;; TODO:
-;; - research dead keys elimination
 
 (defcfg 
   input (iokit-name)
@@ -85,24 +82,6 @@
   _      _      _      _      _      _      _      _      _      _      _      _      _      _
   _      _      _      _      _      _      _      _      _      _      _      _      _      _
   _      a      s      d      f      _      _      j      k      l      ;      _      _
-  _      _      _      _      _      _      _      _      _      _      _      _      _
-  _      _      _      _                    _                    _      _      _      _      _
-)
-
-(deflayer vanilla_lx
-  _      _      _      _      _      _      _      _      _      _      _      _      _
-  _      _      _      _      _      _      _      _      _      _      _      _      _      _
-  _      _      _      _      _      _      _      _      _      _      _      _      _      _
-  _      a      s      d      f      _      _      _      _      _      _      _      _
-  _      _      _      _      _      _      _      _      _      _      _      _      _
-  _      _      _      _                    _                    _      _      _      _      _
-)
-
-(deflayer vanilla_rx
-  _      _      _      _      _      _      _      _      _      _      _      _      _
-  _      _      _      _      _      _      _      _      _      _      _      _      _      _
-  _      _      _      _      _      _      _      _      _      _      _      _      _      _
-  _      -      _      _      _      _      _      j      k      l      ;      _      _
   _      _      _      _      _      _      _      _      _      _      _      _      _
   _      _      _      _                    _                    _      _      _      _      _
 )

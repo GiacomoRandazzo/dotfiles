@@ -28,6 +28,20 @@ Follow guide at first link, but switch to the `keycode-refactor` branch first.
 When compiling remove `—system-ghc`.
 Make sure no karabiner items in Settings > Privacy & Security > Input Monitoring are present.
 
+Alternative tools to keep an eye on: [keyd](https://github.com/rvaiya/keyd), [𝑥MK](https://github.com/manna-harbour/xmk), [kanata](https://github.com/jtroo/kanata).
+
+## Keyboard dead keys / broken `Option-*` shortcuts
+
+In the `ABC` default keyboard layout, the `Option` key (both left and right) 
+activates a layer when held. The layer contains special keys, symbols and dead 
+keys.
+
+The layer interferes with home row mods.
+Moreover the dead keys are handled at the system level and make some shortcuts
+unusable in terminal emulators. E.g. the `G` key corresponds to a dead key,
+the `micro` editor's shortcut `Alt-G` does not work in `alacritty` with
+`option_as_alt: Both`.
+
 ## `sudo` with TouchID
 
 REF:
