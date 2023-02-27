@@ -13,6 +13,7 @@
 ;; - standard modifiers disable home row mods
 ;; - navigation bar on space home
 ;; - swap caps lock and escape
+;; - one-shot shift
 
 (defcfg 
   input (iokit-name)
@@ -31,7 +32,11 @@
 
 (defalias
   ;; Fn
-  Fn (around (layer-toggle function) Fn)
+  Fn    (around (layer-toggle function) Fn)
+
+  ;; one-shot shift
+  ;; NOTE: Keep in sync with `lsft'` below.
+  oss  (sticky-key 500 lsft) 
 
   ;; Use home row mods
   ctl_a (tap-hold-next-release 200 a lctl)
@@ -45,7 +50,11 @@
 
   ;; Use vanilla home row when holding standard modifiers
   ;; Necessary because home row mods don't play nice with standard modifiers
-  lsft' (around (layer-toggle vanilla) lsft)
+  ;; NOTE: For `lsft` we activate the vanilla layer for 500 milliseconds 
+  ;; so that the vanilla layer stays activated for the duration of the one-shot
+  ;; shift.
+  ;; KMonad does not support variables https://github.com/kmonad/kmonad/issues/237
+  lsft' (around (layer-delay 500 vanilla) @oss)
   lctl' (around (layer-toggle vanilla) lctl)
   lalt' (around (layer-toggle vanilla) lalt)
   lmet' (around (layer-toggle vanilla) lmet)
@@ -78,6 +87,14 @@
 )
 
 (deflayer vanilla
+  _      _      _      _      _      _      _      _      _      _      _      _      _
+  _      _      _      _      _      _      _      _      _      _      _      _      _      _
+  _      _      _      _      _      _      _      _      _      _      _      _      _      _
+  _      a      s      d      f      _      _      j      k      l      ;      _      _
+  _      _      _      _      _      _      _      _      _      _      _      _      _
+  _      _      _      _                    _                    _      _      _      _      _
+)
+(deflayer vanillaShifted
   _      _      _      _      _      _      _      _      _      _      _      _      _
   _      _      _      _      _      _      _      _      _      _      _      _      _      _
   _      _      _      _      _      _      _      _      _      _      _      _      _      _
