@@ -17,7 +17,13 @@ Search for `$HOME` in the repo to look for files for which the home path variabl
 must be updated manually.
 
 ## Fish
-- Use `command cat …` to run the un-aliased `cat` command
+
+Use `command cat …` to run the un-aliased `cat` command
+
+[fzf.fish](https://github.com/PatrickF1/fzf.fish) shortcuts:
+- `Ctrl`+`Alt`+`F` to search for files or directory (descendants of current folder)
+- `Ctrl`+`R` to search the command history
+- `Ctrl`+`Alt`+`P` to search for processed
 
 ## KMonad
 
