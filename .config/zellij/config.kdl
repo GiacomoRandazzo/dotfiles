@@ -1,13 +1,13 @@
-NOTE: In Alacritty all the Ctrl + <*> shortcuts are remapped to Cmd + <*>.
-This is done by:
-- binding `Ctrl`+<*> to `Ctrl+G` - `Ctrl`+<*> - `Ctrl+G`
-- binding `Cmd`+<*> to `Ctrl+<*>`
-Where Ctrl + G is the shortcut for entering the "locked" mode where Zellij
-shortcuts are disabled.
-REF:
-- (Default Zellij config) https://github.com/zellij-org/zellij/blob/5235407a5b3eff0e67db83b650066e7c71c68dba/zellij-utils/assets/config/default.kdl
-- (Cmd not supported) https://github.com/zellij-org/zellij/issues/1729
-- (Multiple modifiers not supported) https://github.com/zellij-org/zellij/issues/735
+// NOTE: In Alacritty all the Ctrl + <*> shortcuts are remapped to Cmd + <*>.
+// This is done by:
+// - binding `Ctrl`+<*> to `Ctrl+G` - `Ctrl`+<*> - `Ctrl+G`
+// - binding `Cmd`+<*> to `Ctrl+<*>`
+// Where Ctrl + G is the shortcut for entering the "locked" mode where Zellij
+// shortcuts are disabled.
+// REF:
+// - (Default Zellij config) https://github.com/zellij-org/zellij/blob/5235407a5b3eff0e67db83b650066e7c71c68dba/zellij-utils/assets/config/default.kdl
+// - (Cmd not supported) https://github.com/zellij-org/zellij/issues/1729
+// - (Multiple modifiers not supported) https://github.com/zellij-org/zellij/issues/735
 
 // If you'd like to override the default keybindings completely, be sure to change "keybinds" to "keybinds clear-defaults=true"
 keybinds {
@@ -52,7 +52,7 @@ keybinds {
         bind "c" { SwitchToMode "RenamePane"; PaneNameInput 0;}
     }
     move {
-        bind "Ctrl h" { SwitchToMode "Normal"; }
+        bind "Alt h" { SwitchToMode "Normal"; }
         bind "n" "Tab" { MovePane; }
         bind "h" "Left" { MovePane "Left"; }
         bind "j" "Down" { MovePane "Down"; }
@@ -179,7 +179,7 @@ keybinds {
         bind "Ctrl t" { SwitchToMode "Tab"; }
     }
     shared_except "move" "locked" {
-        bind "Ctrl h" { SwitchToMode "Move"; }
+        bind "Alt h" { SwitchToMode "Move"; }
     }
     shared_except "tmux" "locked" {
         bind "Ctrl b" { SwitchToMode "Tmux"; }
