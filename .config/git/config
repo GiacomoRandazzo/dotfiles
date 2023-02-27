@@ -1,16 +1,32 @@
+# We use:
+# - `micro` for editing commit messages
+# - `git-delta` for showing diffs
+# - `vscode` as difftool and mergetool
+
 [user]
-  name=GiacomoRandazzo
-  email=giacomoran@gmail.com
+  name = GiacomoRandazzo
+  email = giacomoran@gmail.com
 
 [core]
-	editor=micro
+	editor = micro
+	pager = delta
+
+[interactive]
+	diffFilter = delta --color-only
+
+[delta]
+	navigate = true    # use n and N to move between diff sections
+	light = false
 
 [diff]
 	tool = vscode
 [difftool "vscode"]
 	cmd = code --wait --diff $LOCAL $REMOTE
+
 [merge]
 	tool = vscode
+	conflictsytle = diff3
 [mergetool "vscode"]
 	cmd = code --wait $MERGED
+	colorMoved = default
 
