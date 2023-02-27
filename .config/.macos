@@ -3,7 +3,7 @@
 # REFS:
 # - https://github.com/mathiasbynens/dotfiles/blob/main/.macos 
 
-// #: Start
+#: Start
 
 # Close any open System Preferences panes, to prevent them from overriding
 # settings we're about to change
@@ -15,7 +15,7 @@ sudo -v
 # Keep-alive: update existing `sudo` time stamp until `.macos` has finished
 while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
-// #: TextEdit
+#: TextEdit
 
 # Use plain text mode for new TextEdit documents
 defaults write com.apple.TextEdit RichText -int 0
@@ -28,7 +28,7 @@ defaults write com.apple.TextEdit PlainTextEncodingForWrite -int 4
 # REF: https://apple.stackexchange.com/a/111755q
 defaults write com.apple.TextEdit NSShowAppCentricOpenPanelInsteadOfUntitledFile -bool false
 
-// #: End
+#: End
 
 # Kill all affected apps
 # NOTE: How to list more

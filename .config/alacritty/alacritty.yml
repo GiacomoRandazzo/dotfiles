@@ -70,9 +70,9 @@ key_bindings:
   - { key: F, mods: Command, mode: ~Search, action: ReceiveChar }
   - { key: B, mods: Control|Shift, mode: ~Search, action: ReceiveChar }
   - { key: B, mods: Command, mode: ~Search, action: ReceiveChar }
-  # Remap Zellij default `Ctrl` shortcuts to `Cmd`
-  # - Zellij locks its shortcuts with `Ctrl+g`
-  # - map `Ctrl`+X to `Ctrl+G` - `Ctrl`+X - `Ctrl+G`
+  # Remap Zellij default Ctrl shortcuts to Cmd
+  # - Zellij locks its shortcuts with Ctrl-g
+  # - map Ctrl-<*> to the sequence Ctrl-G => Ctrl-<*> => Ctrl-G
   - { key: A, mods: Control, chars: "\x07" }
   - { key: A, mods: Control, chars: "\x01" }
   - { key: A, mods: Control, chars: "\x07" }
@@ -94,7 +94,9 @@ key_bindings:
   - { key: O, mods: Control, chars: "\x07" }
   - { key: O, mods: Control, chars: "\x0F" }
   - { key: O, mods: Control, chars: "\x07" }
-    # - map `Cmd`+X to `Ctrl+X`
+    # - map Cmd-<*> to Ctrl-<*>
+    # WARN: Cmd-H in MacOS hides a window.
+    # To disable the system shortcut follow the instructions at https://github.com/alacritty/alacritty/issues/5346#issuecomment-1055695103
   - { key: G, mods: Command, chars: "\x07" }
   - { key: P, mods: Command, chars: "\x10" }
   - { key: T, mods: Command, chars: "\x14" }
