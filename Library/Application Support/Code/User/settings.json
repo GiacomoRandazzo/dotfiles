@@ -1,0 +1,105 @@
+{
+  // #: Theme
+  "editor.fontFamily": "'Iosevka Nerd Font', 'Fira Code', 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",
+  "editor.fontLigatures": true,
+  "workbench.colorTheme": "Default Light+ Experimental",
+  "editor.semanticTokenColorCustomizations": {
+    "[Default Light+ Experimental]": {
+      "rules": {
+        "variable.readonly": { "italic": true },
+        "variable.local": { "italic": false }
+      }
+    }
+  },
+  "editor.fontSize": 14,
+  "editor.lineHeight": 1.4,
+  "debug.toolBarLocation": "docked",
+  "editor.rulers": [80],
+  "editor.bracketPairColorization.enabled": true,
+  "editor.minimap.renderCharacters": false,
+  "editor.minimap.enabled": false,
+  "editor.minimap.maxColumn": 80,
+  // #: Behavior
+  "workbench.editor.showTabs": false,
+  "files.autoSave": "onFocusChange",
+  "editor.codeActionsOnSave": {
+    "source.organizeImports": true,
+    "source.fixAll": true
+  },
+  "explorer.confirmDelete": false,
+  "editor.inlineSuggest.enabled": true,
+  "editor.quickSuggestionsDelay": 3000,
+  "task.allowAutomaticTasks": "off",
+  "editor.showFoldingControls": "always",
+  // Change line background color for specific keywords
+  "todohighlight.keywords": [
+    {
+      "text": "#:",
+      "color": "#0f172a",
+      "backgroundColor": "#e2e8f0",
+      "isWholeLine": true,
+      "fontWeight": "bold",
+      "fontStyle": "italic"
+    },
+    {
+      "text": "##:",
+      "color": "#0f172a",
+      "backgroundColor": "#f8fafc"
+    }
+  ],
+  "editor.tabSize": 2,
+  "liveshare.presence": true,
+  "liveshare.allowGuestTaskControl": true,
+  "liveshare.languages.allowGuestCommandControl": true,
+  "liveshare.allowGuestDebugControl": true,
+  "editor.accessibilitySupport": "off",
+  // #: Language: JSON
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  // #: Language: Javascript
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  // #: Language: Typescript
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "svelte.enable-ts-plugin": true,
+  "[svelte]": {
+    "editor.defaultFormatter": "svelte.svelte-vscode"
+  },
+  "svelte.plugin.svelte.note-new-transformation": false,
+  "playwright.reuseBrowser": false,
+  // #: Lua
+  "[lua]": {
+    "editor.defaultFormatter": "Koihik.vscode-lua-format"
+  },
+  // #: Clojure
+  "files.associations": {
+    "*.kbd": "clojure"
+  },
+  // #: Others
+  "remoteHub.logLevel": "debug",
+  "gitlens.currentLine.enabled": false,
+  "gitlens.hovers.currentLine.over": "line",
+  "gitlens.codeLens.enabled": false,
+  "github.copilot.enable": {
+    "*": true,
+    "yaml": false,
+    "plaintext": false,
+    "markdown": false,
+    "purescript": false
+  },
+  "[python]": {
+    "editor.formatOnType": true
+  },  
+  // #: Unsorted
+}
