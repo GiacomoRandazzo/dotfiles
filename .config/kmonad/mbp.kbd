@@ -60,12 +60,12 @@
   lmet' (around (layer-toggle vanilla) lmet)
   rsft' (around (layer-toggle vanilla) rsft)
   ralt' (around (layer-toggle vanilla) ralt)
-  rmet' (around (layer-toggle vanilla) rmet)
+  ;; Right Cmd is Cmd-Space on tap
+  rmet' (tap-hold-next-release 200 (around rmet spc) (around (layer-toggle vanilla) rmet))
 
   ;; Space for navigation layer
   spc' (tap-hold-next-release 200 spc (layer-toggle navigation))
 )
-
 
 (deflayer default
 ;; TODO: Missing function keys https://github.com/kmonad/kmonad/issues/418#issuecomment-969106029

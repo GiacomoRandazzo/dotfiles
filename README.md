@@ -56,6 +56,13 @@ Use `command cat …` to run the un-aliased `cat` command
 
 ## KMonad
 
+If KMonad freezes run the commands:
+
+```
+kmonad-reinstall-drivers
+kmonad-activate-drivers
+```
+
 REF:
 - https://github.com/kmonad/kmonad/issues/334#issuecomment-1000106276
 
