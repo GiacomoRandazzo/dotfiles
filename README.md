@@ -16,6 +16,35 @@ WARN: Make sure you add `—bar` to `git clone` otherwise you will overwrite the
 Search for `$HOME` in the repo to look for files for which the home path variable
 must be updated manually.
 
+## Homebrew
+
+All packages should be installed through Homebrew if possible.
+
+A list of installed packages is in `$HOME/.config/Brewfile`.
+
+Install the brewfile by running
+
+```
+brew bundle --file=~/.config/Brewfile
+```
+
+Update the brewfile by running
+
+```
+brew bundle dump --file=~/.config/Brewfile --force
+```
+
+Generate a Homebrew dependencies graph by running
+
+```
+brew graph --installed --highlight-leaves | fdp -T png -o graph.png
+```
+
+REF:
+- (Brew Bundle Brewfile Tips)[https://gist.github.com/ChristopherA/a579274536aab36ea9966f301ff14f3f]
+- (Untangling Your Homebrew Dependencies)[https://blog.jpalardy.com/posts/untangling-your-homebrew-dependencies/]
+
+
 ## Fish
 
 Use `command cat …` to run the un-aliased `cat` command
