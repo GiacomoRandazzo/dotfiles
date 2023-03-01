@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # REFS:
-# - https://github.com/mathiasbynens/dotfiles/blob/main/.macos 
+# - https://github.com/mathiasbynens/dotfiles/blob/main/.macos
 
 #: Start
 
@@ -25,7 +25,7 @@ defaults write com.apple.TextEdit PlainTextEncoding -int 4
 defaults write com.apple.TextEdit PlainTextEncodingForWrite -int 4
 
 # Open editor without asking for where to save
-# REF: https://apple.stackexchange.com/a/111755q
+# REFS: https://apple.stackexchange.com/a/111755q
 defaults write com.apple.TextEdit NSShowAppCentricOpenPanelInsteadOfUntitledFile -bool false
 
 #: End

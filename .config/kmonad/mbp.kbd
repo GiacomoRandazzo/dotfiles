@@ -1,4 +1,4 @@
-;; REF:
+;; REFS:
 ;; - (KMonad Tutorial) https://raw.githubusercontent.com/kmonad/kmonad/master/keymap/tutorial.kbd
 ;; - (Apple template) https://github.com/kmonad/kmonad/blob/master/keymap/template/apple.kbd
 ;; - (Apple Keyboard blocking/ghosting issues)
@@ -15,7 +15,7 @@
 ;; - swap caps lock and escape
 ;; - one-shot shift
 
-(defcfg 
+(defcfg
   input (iokit-name)
   output (kext)
   fallthrough true
@@ -36,7 +36,7 @@
 
   ;; one-shot shift
   ;; NOTE: Keep in sync with `lsft'` below.
-  oss  (sticky-key 500 lsft) 
+  oss  (sticky-key 500 lsft)
 
   ;; Use home row mods
   ctl_a (tap-hold-next-release 200 a lctl)
@@ -50,7 +50,7 @@
 
   ;; Use vanilla home row when holding standard modifiers
   ;; Necessary because home row mods don't play nice with standard modifiers
-  ;; NOTE: For `lsft` we activate the vanilla layer for 500 milliseconds 
+  ;; NOTE: For `lsft` we activate the vanilla layer for 500 milliseconds
   ;; so that the vanilla layer stays activated for the duration of the one-shot
   ;; shift.
   ;; KMonad does not support variables https://github.com/kmonad/kmonad/issues/237
@@ -104,11 +104,11 @@
   _      _      _      _      _      _      _      _      _      _      _      _      _      _
   _      a      s      d      f      _      _      j      k      l      ;      _      _
   _      _      _      _      _      _      _      _      _      _      _      _      _
-  _      _      _      _                    _                    _      _      _      _      _ 
+  _      _      _      _                    _                    _      _      _      _      _
 )
 
 (deflayer navigation
-  _      _      _      _      _      _      _      _      _      _      _      _      _  
+  _      _      _      _      _      _      _      _      _      _      _      _      _
   _      _      _      _      _      _      _      _      _      _      _      _      _      _
   _      _      _      _      _      _      pgup   @mls    up     @mle    _      _      _      _
   _      _      _      _      _      _      pgdn   left   down   right  _      _      _

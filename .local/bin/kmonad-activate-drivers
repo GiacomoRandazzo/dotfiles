@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 
-# REF: https://github.com/kmonad/kmonad/issues/334#issuecomment-1000106276
+# REFS: https://github.com/kmonad/kmonad/issues/334#issuecomment-1000106276
 
 /Applications/.Karabiner-VirtualHIDDevice-Manager.app/Contents/MacOS/Karabiner-VirtualHIDDevice-Manager activate

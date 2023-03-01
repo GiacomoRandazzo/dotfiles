@@ -4,7 +4,7 @@
 // - binding `Cmd`+<*> to `Ctrl+<*>`
 // Where Ctrl + G is the shortcut for entering the "locked" mode where Zellij
 // shortcuts are disabled.
-// REF:
+// REFS:
 // - (Default Zellij config) https://github.com/zellij-org/zellij/blob/5235407a5b3eff0e67db83b650066e7c71c68dba/zellij-utils/assets/config/default.kdl
 // - (Cmd not supported) https://github.com/zellij-org/zellij/issues/1729
 // - (Multiple modifiers not supported) https://github.com/zellij-org/zellij/issues/735
@@ -15,7 +15,7 @@ keybinds {
         // uncomment this and adjust key if using copy_on_select=false
         // bind "Alt c" { Copy; }
         // `Ctrl q` conflicts with other keybindings for instance in `micro`.
-        // REF: https://github.com/zellij-org/zellij/issues/2161
+        // REFS: https://github.com/zellij-org/zellij/issues/2161
         unbind "Ctrl q"
     }
     locked {

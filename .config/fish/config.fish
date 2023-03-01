@@ -1,4 +1,4 @@
-# REF: Config mostly taken from Andrea Vaccari's dotfiles.
+# REFS: Config mostly taken from Andrea Vaccari's dotfiles.
 
 #
 # Disable the fish greeting

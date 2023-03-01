@@ -1,4 +1,4 @@
-# REF: 
+# REFS:
 # - https://github.com/alacritty/alacritty/blob/master/alacritty.yml
 
 live_config_reload: true
