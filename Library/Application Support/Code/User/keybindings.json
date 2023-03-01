@@ -1,3 +1,58 @@
 // Place your key bindings in this file to override the defaults
 [
+  // #: Editor
+  // [⌘]+[a] Expand selection
+  {
+    "key": "cmd+a",
+    "command": "editor.action.smartSelect.expand",
+    "when": "editorFocus"
+  },
+  // [⇧]+[⌘]+[a] Shrink selection
+  {
+    "key": "shift+cmd+a",
+    "command": "editor.action.smartSelect.shrink",
+    "when": "editorFocus"
+  },
+  // #: Group focusing and moving
+  //
+  // [⌥]+[⌘]+[→] Focus next group (remapped)
+  {
+    "key": "alt+cmd+right",
+    "command": "-workbench.action.nextEditor"
+  },
+  {
+    "key": "alt+cmd+right",
+    "command": "workbench.action.focusNextGroup",
+    "when": "editorFocus"
+  },
+  // [⌥]+[⌘]+[←] Focus prev group (remapped)
+  {
+    "key": "alt+cmd+left",
+    "command": "-workbench.action.previousEditor"
+  },
+  {
+    "key": "alt+cmd+left",
+    "command": "workbench.action.focusPreviousGroup",
+    "when": "editorFocus"
+  },
+  // [⌃]+[⌥]+[→] Move editor to next group (remapped)
+  {
+    "key": "ctrl+cmd+right",
+    "command": "-workbench.action.moveEditorToNextGroup"
+  },
+  {
+    "key": "ctrl+alt+right",
+    "command": "workbench.action.moveEditorToNextGroup",
+    "when": "editorFocus"
+  },
+  // [⌃]+[⌥]+[←] Move editor to prev group (remapped)
+  {
+    "key": "ctrl+cmd+left",
+    "command": "-workbench.action.moveEditorToPreviousGroup"
+  },
+  {
+    "key": "ctrl+alt+left",
+    "command": "workbench.action.moveEditorToPreviousGroup",
+    "when": "editorFocus"
+  }
 ]

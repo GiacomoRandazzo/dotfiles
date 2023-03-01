@@ -1,105 +1,277 @@
 {
-  // #: Theme
-  "editor.fontFamily": "'Iosevka Nerd Font', 'Fira Code', 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",
-  "editor.fontLigatures": true,
+  // #: Files
+  "files.associations": {
+    "*.kbd": "clojure",
+    "*.fish": "shellscript",
+    "*.plist": "xml"
+  },
+  "files.autoSave": "onFocusChange",
+  "files.insertFinalNewline": true,
+  "files.trimTrailingWhitespace": true,
+  // #: Workbench
+  "window.openFilesInNewWindow": "on",
+  "window.openFoldersInNewWindow": "on",
   "workbench.colorTheme": "Default Light+ Experimental",
+  "workbench.editor.closeEmptyGroups": false,
+  "workbench.editor.enablePreview": false,
+  "workbench.editor.enablePreviewFromQuickOpen": false,
+  "workbench.editor.labelFormat": "long",
+  "workbench.editor.showTabs": false,
+  "workbench.editor.tabSizing": "shrink",
+  "workbench.editor.untitled.hint": "hidden",
+  "workbench.startupEditor": "newUntitledFile",
+  "workbench.tree.indent": 18,
+  "workbench.tree.renderIndentGuides": "always",
+  // #: Editor
+  "editor.cursorWidth": 2,
+  "editor.cursorSurroundingLines": 10,
+  "editor.smoothScrolling": true,
+  "editor.find.addExtraSpaceOnTop": false,
+  "editor.fontFamily": "'Iosevka Nerd Font', 'Fira Code', 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",
+  "editor.fontSize": 14,
+  "editor.fontWeight": 500,
+  "editor.lineHeight": 18,
+  "editor.fontLigatures": true,
+  "editor.showFoldingControls": "always",
+  "editor.formatOnSave": true,
+  "editor.linkedEditing": true,
+  "editor.minimap.enabled": false,
+  "editor.minimap.maxColumn": 80,
+  "editor.minimap.renderCharacters": false,
+  "editor.renderControlCharacters": true,
+  "editor.renderLineHighlight": "all",
+  "editor.rulers": [80],
+  "editor.codeActionsOnSave": ["source.organizeImports"],
+  "editor.inlineSuggest.enabled": true,
+  "editor.quickSuggestionsDelay": 3000,
+  // https://code.visualstudio.com/docs/editor/intellisense#_settings
+  "editor.acceptSuggestionOnCommitCharacter": false,
+  "editor.wordBasedSuggestions": false,
+  "editor.suggest.localityBonus": true,
+  "editor.tabSize": 2,
+  "editor.accessibilitySupport": "off",
+  "editor.bracketPairColorization.enabled": true,
   "editor.semanticTokenColorCustomizations": {
     "[Default Light+ Experimental]": {
       "rules": {
-        "variable.readonly": { "italic": true },
-        "variable.local": { "italic": false }
+        "variable.readonly": {
+          "italic": true
+        },
+        "variable.local": {
+          "italic": false
+        }
       }
     }
   },
-  "editor.fontSize": 14,
-  "editor.lineHeight": 1.4,
-  "debug.toolBarLocation": "docked",
-  "editor.rulers": [80],
-  "editor.bracketPairColorization.enabled": true,
-  "editor.minimap.renderCharacters": false,
-  "editor.minimap.enabled": false,
-  "editor.minimap.maxColumn": 80,
-  // #: Behavior
-  "workbench.editor.showTabs": false,
-  "files.autoSave": "onFocusChange",
-  "editor.codeActionsOnSave": {
-    "source.organizeImports": true,
-    "source.fixAll": true
-  },
+  // #: Sidebar: Explorer
+  "explorer.openEditors.visible": 0,
   "explorer.confirmDelete": false,
-  "editor.inlineSuggest.enabled": true,
-  "editor.quickSuggestionsDelay": 3000,
-  "task.allowAutomaticTasks": "off",
-  "editor.showFoldingControls": "always",
-  // Change line background color for specific keywords
-  "todohighlight.keywords": [
-    {
-      "text": "#:",
-      "color": "#0f172a",
-      "backgroundColor": "#e2e8f0",
-      "isWholeLine": true,
-      "fontWeight": "bold",
-      "fontStyle": "italic"
-    },
-    {
-      "text": "##:",
-      "color": "#0f172a",
-      "backgroundColor": "#f8fafc"
+  "explorer.sortOrder": "foldersNestsFiles",
+  // #: Sidebar: Debug
+  "debug.openDebug": "openOnDebugBreak",
+  "debug.showInStatusBar": "always",
+  "debug.toolBarLocation": "docked",
+  "debug.console.wordWrap": false,
+  // #: Sidebar: Extensions
+  "extensions.ignoreRecommendations": true,
+  // #: Panel: Terminal
+  "terminal.external.osxExec": "Alacritty.app",
+  "terminal.integrated.fontSize": 14,
+  "terminal.integrated.fontWeight": "500",
+  "terminal.integrated.lineHeight": 1,
+  "terminal.integrated.cursorBlinking": true,
+  "terminal.integrated.macOptionIsMeta": true,
+  "terminal.integrated.copyOnSelection": true,
+  "terminal.integrated.scrollback": 10000,
+  "terminal.integrated.tabs.hideCondition": "never",
+  "terminal.integrated.tabs.showActions": "always",
+  "terminal.integrated.enablePersistentSessions": false,
+  // Customize terminal profiles
+  // REFS:
+  // - https://code.visualstudio.com/docs/terminal/profiles
+  // - https://george.honeywood.org.uk/blog/vs-code-and-tmux/
+  // - https://github.com/microsoft/vscode/blob/main/src/vs/platform/terminal/common/terminalPlatformConfiguration.ts
+  "terminal.integrated.profiles.osx": {
+    "bash": null,
+    "zellij": {
+      "path": "bash",
+      "args": ["-c", "zellij attach -c ${PWD##*/}"],
+      "icon": "terminal-tmux"
     }
-  ],
-  "editor.tabSize": 2,
+  },
+  "terminal.integrated.defaultProfile.osx": "zellij",
+  // Use a POSIX-compatible shell and avoid running `config.fish` for tasks and debug
+  // https://code.visualstudio.com/docs/terminal/profiles#_configuring-the-taskdebug-profile
+  "terminal.integrated.automationProfile.osx": {
+    "path": "bash",
+    "icon": "zap",
+    "color": "terminal.ansiRed"
+  },
+  // #: Misc
+  "task.allowAutomaticTasks": "off",
+  "breadcrumbs.enabled": true,
+  "diffEditor.ignoreTrimWhitespace": false,
+  "search.smartCase": true,
+  // #: Lang: Plain Text
+  "[plaintext]": {
+    "editor.rulers": [],
+    "editor.wordWrap": "on"
+  },
+  // #: Lang: Markdown
+  "[markdown]": {
+    "editor.rulers": [],
+    "editor.wordWrap": "on"
+  },
+  // #: Lang: HTML
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  // #: Lang CSS
+  "[css]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  // #: Lang: Javascript
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.detectIndentation": false
+  },
+  "[javascriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.detectIndentation": false
+  },
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "javascript.format.enable": false,
+  "javascript.inlayHints.enumMemberValues.enabled": true,
+  "javascript.inlayHints.functionLikeReturnTypes.enabled": true,
+  "javascript.inlayHints.parameterNames.enabled": "literals",
+  "javascript.inlayHints.parameterTypes.enabled": true,
+  "javascript.inlayHints.propertyDeclarationTypes.enabled": true,
+  "javascript.inlayHints.variableTypes.enabled": true,
+  // #: Lang: Typescript
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.detectIndentation": false
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.detectIndentation": false
+  },
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "typescript.format.enable": false,
+  "typescript.inlayHints.enumMemberValues.enabled": true,
+  "typescript.inlayHints.functionLikeReturnTypes.enabled": true,
+  "typescript.inlayHints.parameterNames.enabled": "literals",
+  "typescript.inlayHints.parameterTypes.enabled": true,
+  "typescript.inlayHints.propertyDeclarationTypes.enabled": true,
+  "typescript.inlayHints.variableTypes.enabled": true,
+  // #: Lang: Svelte
+  "[svelte]": {
+    "editor.defaultFormatter": "svelte.svelte-vscode"
+  },
+  "svelte.enable-ts-plugin": true,
+  "svelte.plugin.svelte.defaultScriptLanguage": "ts",
+  // #: Lang: JSON
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  // #: Lang: YAML
+  "[yaml]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  // #: Lang: Python
+  "[python]": {
+    "editor.formatOnType": false
+  },
+  // #: Lang: Clojure
+  "[clojure]": {
+    "editor.defaultFormatter": "betterthantomorrow.calva"
+  },
+  // #: Lang: Lua
+  "[lua]": {
+    "editor.defaultFormatter": "Koihik.vscode-lua-format"
+  },
+  // #: Extension: GitLens
+  "gitlens.codeLens.enabled": false,
+  "gitlens.currentLine.enabled": false,
+  "gitlens.hovers.currentLine.over": "line",
+  "gitlens.views.remotes.files.layout": "tree",
+  // #: Plugin: Eslint
+  "eslint.lintTask.enable": true,
+  // #: Plugin: Tailwind
+  "tailwindCSS.colorDecorators": false,
+  // #: Extension: Live Share
   "liveshare.presence": true,
   "liveshare.allowGuestTaskControl": true,
   "liveshare.languages.allowGuestCommandControl": true,
   "liveshare.allowGuestDebugControl": true,
-  "editor.accessibilitySupport": "off",
-  // #: Language: JSON
-  "[jsonc]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  // #: Extension: Highlight
+  // https://github.com/fabiospampinato/vscode-highlight
+  // https://code.visualstudio.com/api/references/vscode-api#DecorationRenderOptions
+  "highlight.regexFlags": "gi",
+  "highlight.regexes": {
+    "([^\\w])((?:TODO|TASK):)": {
+      "filterFileRegex": ".*(?<!CHANGELOG.md)$",
+      "decorations": [
+        {},
+        {
+          "overviewRulerColor": "#fbbf24",
+          "backgroundColor": "#fbbf24",
+          "borderRadius": "2px",
+          "color": "#1f1f1f",
+          "fontWeight": "bold"
+        }
+      ]
+    },
+    "([^\\w])((?:FIXME|FIX|BUG|HACK|WARN|UGLY|DEBUG|ISSUE):)": {
+      "filterFileRegex": ".*(?<!CHANGELOG.md)$",
+      "decorations": [
+        {},
+        {
+          "overviewRulerColor": "#f87171",
+          "backgroundColor": "#f87171",
+          "color": "#1f1f1f",
+          "fontWeight": "bold"
+        }
+      ]
+    },
+    "([^\\w])((?:IDEA|NOTE|REFS):)": {
+      "filterFileRegex": ".*(?<!CHANGELOG.md)$",
+      "decorations": [
+        {},
+        {
+          "overviewRulerColor": "#4ade80",
+          "backgroundColor": "#4ade80",
+          "borderRadius": "2px",
+          "color": "#1f1f1f",
+          "fontWeight": "bold"
+        }
+      ]
+    },
+    "[^#](#:)": {
+      "decorations": {
+        "isWholeLine": true,
+        "overviewRulerColor": "#e2e8f0",
+        "backgroundColor": "#e2e8f0aa",
+        "fontWeight": "bold"
+      }
+    }
   },
-  "[json]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  // #: Plugin: Explicit folding
+  "explicitFolding.rules": {
+    "*": {
+      "separatorRegex": "^.{0,16}#:",
+      "foldEOF": true
+    }
   },
-  // #: Language: Javascript
-  "[javascript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[javascriptreact]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  // #: Language: Typescript
-  "[typescript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "typescript.updateImportsOnFileMove.enabled": "always",
-  "svelte.enable-ts-plugin": true,
-  "[svelte]": {
-    "editor.defaultFormatter": "svelte.svelte-vscode"
-  },
-  "svelte.plugin.svelte.note-new-transformation": false,
-  "playwright.reuseBrowser": false,
-  // #: Lua
-  "[lua]": {
-    "editor.defaultFormatter": "Koihik.vscode-lua-format"
-  },
-  // #: Clojure
-  "files.associations": {
-    "*.kbd": "clojure"
-  },
-  // #: Others
-  "remoteHub.logLevel": "debug",
-  "gitlens.currentLine.enabled": false,
-  "gitlens.hovers.currentLine.over": "line",
-  "gitlens.codeLens.enabled": false,
+  // #: Extension: Github Copilot
   "github.copilot.enable": {
     "*": true,
     "yaml": false,
     "plaintext": false,
     "markdown": false,
     "purescript": false
-  },
-  "[python]": {
-    "editor.formatOnType": true
-  },  
-  // #: Unsorted
+  }
 }
