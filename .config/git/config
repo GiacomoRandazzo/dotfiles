@@ -4,7 +4,7 @@
 # - `vscode` as difftool and mergetool
 
 [user]
-  name = GiacomoRandazzo
+  name = Giacomo Randazzo
   email = giacomoran@gmail.com
 
 [core]
