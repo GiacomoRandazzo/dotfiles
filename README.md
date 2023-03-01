@@ -4,10 +4,10 @@
 
 Git bare repository with `$HOME` as the work tree.
 
-REF: https://www.atlassian.com/git/tutorials/dotfiles
+REFS: https://www.atlassian.com/git/tutorials/dotfiles
 
 > Consider moving git work tree to root. Allows you to keep track of what system file you edit.
-Idea by Andrea, also found in https://mitxela.com/projects/dotfiles_management.
+> Idea by Andrea, also found in https://mitxela.com/projects/dotfiles_management.
 
 ### Instructions
 
@@ -40,16 +40,17 @@ Generate a Homebrew dependencies graph by running
 brew graph --installed --highlight-leaves | fdp -T png -o graph.png
 ```
 
-REF:
+REFS:
+
 - (Brew Bundle Brewfile Tips)[https://gist.github.com/ChristopherA/a579274536aab36ea9966f301ff14f3f]
 - (Untangling Your Homebrew Dependencies)[https://blog.jpalardy.com/posts/untangling-your-homebrew-dependencies/]
-
 
 ## Fish
 
 Use `command cat â€¦` to run the un-aliased `cat` command
 
 [fzf.fish](https://github.com/PatrickF1/fzf.fish) shortcuts:
+
 - `Ctrl`+`Alt`+`F` to search for files or directory (descendants of current folder)
 - `Ctrl`+`R` to search the command history
 - `Ctrl`+`Alt`+`P` to search for processed
@@ -63,7 +64,8 @@ kmonad-reinstall-drivers
 kmonad-activate-drivers
 ```
 
-REF:
+REFS:
+
 - https://github.com/kmonad/kmonad/issues/334#issuecomment-1000106276
 
 Follow guide at first link, but switch to the `keycode-refactor` branch first.
@@ -74,8 +76,8 @@ Alternative tools to keep an eye on: [keyd](https://github.com/rvaiya/keyd), [ð
 
 ## Keyboard dead keys / broken `Option-*` shortcuts
 
-In the `ABC` default keyboard layout, the `Option` key (both left and right) 
-activates a layer when held. The layer contains special keys, symbols and dead 
+In the `ABC` default keyboard layout, the `Option` key (both left and right)
+activates a layer when held. The layer contains special keys, symbols and dead
 keys.
 
 The layer interferes with home row mods.
@@ -86,7 +88,8 @@ the `micro` editor's shortcut `Alt-G` does not work in `alacritty` with
 
 ## `sudo` with TouchID
 
-REF:
+REFS:
+
 - https://github.com/fabianishere/pam_reattach
 - https://derflounder.wordpress.com/2017/11/17/enabling-touch-id-authorization-for-sudo-on-macos-high-sierra/
 
@@ -102,12 +105,17 @@ To add a script directory, go to Raycast Settings > Extensions > + > Add Script 
 Add `.local/bin` as script directory to write scripts once that can be use in Raycast
 and in the terminal.
 
-REF: https://github.com/raycast/script-commands
+REFS: https://github.com/raycast/script-commands
 
-The Raycast settings are expoted in `.config/Raycast.rayconfig`, they are 
+The Raycast settings are expoted in `.config/Raycast.rayconfig`, they are
 password protected.
+
+## Podman / Docker
+
+Runnind Docker.<br/>
+I'd rather run Podman but `act` does not support Podman https://github.com/nektos/act/issues/303.
 
 ## Tricks
 
-- **Download Github folders** Open in `github.dev` (navigate to the folder and press `.`). 
+- **Download Github folders** Open in `github.dev` (navigate to the folder and press `.`).
   Select the folder in the VSCode sidebar, right click and `Download`.
