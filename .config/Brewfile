@@ -33,6 +33,7 @@ brew "zellij"
 cask "alacritty"
 cask "anki"
 cask "arc"
+cask "beyond-compare"
 cask "blockblock"
 cask "discord"
 cask "docker"
@@ -65,7 +66,6 @@ cask "vlc"
 cask "whatsapp"
 cask "zoom"
 cask "zotero"
-mas "Bear", id: 1091189122
 mas "GarageBand", id: 682658836
 mas "iMovie", id: 408981434
 mas "Keynote", id: 409183694
