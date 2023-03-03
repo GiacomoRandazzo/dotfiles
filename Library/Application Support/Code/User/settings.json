@@ -29,8 +29,7 @@
   "editor.find.addExtraSpaceOnTop": false,
   "editor.fontFamily": "'Iosevka Nerd Font', 'Fira Code', 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",
   "editor.fontSize": 14,
-  "editor.fontWeight": 500,
-  "editor.lineHeight": 18,
+  "editor.lineHeight": 20,
   "editor.fontLigatures": true,
   "editor.showFoldingControls": "always",
   "editor.formatOnSave": true,
@@ -141,12 +140,6 @@
   },
   "javascript.updateImportsOnFileMove.enabled": "always",
   "javascript.format.enable": false,
-  "javascript.inlayHints.enumMemberValues.enabled": true,
-  "javascript.inlayHints.functionLikeReturnTypes.enabled": true,
-  "javascript.inlayHints.parameterNames.enabled": "literals",
-  "javascript.inlayHints.parameterTypes.enabled": true,
-  "javascript.inlayHints.propertyDeclarationTypes.enabled": true,
-  "javascript.inlayHints.variableTypes.enabled": true,
   // #: Lang: Typescript
   "[typescript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
@@ -158,12 +151,6 @@
   },
   "typescript.updateImportsOnFileMove.enabled": "always",
   "typescript.format.enable": false,
-  "typescript.inlayHints.enumMemberValues.enabled": true,
-  "typescript.inlayHints.functionLikeReturnTypes.enabled": true,
-  "typescript.inlayHints.parameterNames.enabled": "literals",
-  "typescript.inlayHints.parameterTypes.enabled": true,
-  "typescript.inlayHints.propertyDeclarationTypes.enabled": true,
-  "typescript.inlayHints.variableTypes.enabled": true,
   // #: Lang: Svelte
   "[svelte]": {
     "editor.defaultFormatter": "svelte.svelte-vscode"
@@ -198,9 +185,9 @@
   "gitlens.currentLine.enabled": false,
   "gitlens.hovers.currentLine.over": "line",
   "gitlens.views.remotes.files.layout": "tree",
-  // #: Plugin: Eslint
+  // #: Extension: Eslint
   "eslint.lintTask.enable": true,
-  // #: Plugin: Tailwind
+  // #: Extension: Tailwind
   "tailwindCSS.colorDecorators": false,
   // #: Extension: Live Share
   "liveshare.presence": true,
@@ -259,7 +246,7 @@
       }
     }
   },
-  // #: Plugin: Explicit folding
+  // #: Extension: Explicit folding
   "explicitFolding.rules": {
     "*": {
       "separatorRegex": "^.{0,16}#:",
@@ -273,5 +260,7 @@
     "plaintext": false,
     "markdown": false,
     "purescript": false
-  }
+  },
+  // #: Extension: Playwright
+  "playwright.reuseBrowser": true
 }
