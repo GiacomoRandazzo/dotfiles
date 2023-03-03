@@ -68,7 +68,7 @@ if status is-interactive
     #
 
     abbr --add --global gs 'git status'
-    abbr --add --global ga 'git add'
+    abbr --add --global ga 'git add .'
     abbr --add --global gc 'git commit -m'
     abbr --add --global gl 'git log'
     abbr --add --global gst 'git show-tree' # from git-extras
@@ -107,6 +107,8 @@ if status is-interactive
     # Universal variables are stored in `fish_variables` and don't need to be reset
     # every time. However, what we want is to set -gx which sets a global exported
     # variable.
+    # Refs:
+    # - https://smallstep.com/blog/ssh-agent-explained/
     #
     if test -z (pgrep ssh-agent | string collect)
     eval (ssh-agent -c)

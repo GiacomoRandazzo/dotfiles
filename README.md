@@ -115,6 +115,21 @@ password protected.
 Runnind Docker.<br/>
 I'd rather run Podman but `act` does not support Podman https://github.com/nektos/act/issues/303.
 
+## Logseq
+
+Currently setting up Logseq sync with GitHub. In iPhone we use the [a-shell](https://github.com/holzschu/a-shell) app with shortcuts.
+
+FIX:
+
+- a-shell does not currently support `ssh-agent`, we've instead created a passwordless ssh key and added it to GitHub as [deploy key](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/managing-deploy-keys#deploy-keys) (has read/write permission only to the GiacomoRandazzo/logseq repo).
+  Tracking: https://github.com/holzschu/a-shell/issues/560
+- When Logseq cloud based sync becomes more reliable switch to that
+
+Refs:
+
+- https://github.com/CharlesChiuGit/Logseq-Git-Sync-101
+- https://discuss.logseq.com/t/sync-logseq-between-ios-and-pc-with-git/10854
+
 ## Tricks
 
 - **Download Github folders** Open in `github.dev` (navigate to the folder and press `.`).
