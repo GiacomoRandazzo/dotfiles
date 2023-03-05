@@ -86,6 +86,21 @@ unusable in terminal emulators. E.g. the `G` key corresponds to a dead key,
 the `micro` editor's shortcut `Alt-G` does not work in `alacritty` with
 `option_as_alt: Both`.
 
+Solved by using a keyboard layout with no dead keys, see `Library/Keyboard Layouts
+/US No Dead Keys.bundle`.
+
+## Refs:
+
+- https://github.com/iandunn/dotfiles/tree/abea232c46951ed368e58666471a4e4e0d182e64/keyboards/US%20No%20Dead%20Keys
+- https://github.com/fabi1cazenave/kalamine
+
+## Trackpad
+
+I use natural scrolling.
+
+I'd love to use only three and four finger gestures to free up panning with two fingers in the browser.
+ISSUE: This is blocked because the three finger "Swipe between pages" gesture does not support natural scrolling in MacOS. Using two fingers instead.
+
 ## `sudo` with TouchID
 
 REFS:
@@ -134,3 +149,8 @@ Refs:
 
 - **Download Github folders** Open in `github.dev` (navigate to the folder and press `.`).
   Select the folder in the VSCode sidebar, right click and `Download`.
+- **Finder: Resize all culumns** Hold [⌥] to resize all columns at the same time.
+- **Finder: shortcut for cutting and pasting** Copy with [⌘][c] then move with [⌘][⌥][V]
+- **Symbols and other special chars** (This does not work in the `U.S. No Dead Keys Layout`) From the settings, open the accessibility virtual keyboard and hold [⌥] to view all the special symbols you can insert:
+  - • is [⌥][8]
+  - — (mdash) is [⌘][⇧][-]
