@@ -1,0 +1,107 @@
+/*
+~/Library/KeyBindings/DefaultKeyBinding.Dict
+
+Author: Andrea Vaccari
+
+Refs:
+- https://web.archive.org/web/20161220060333/http://osxnotes.net/keybindings.html
+- https://github.com/ttscoff/KeyBindings/blob/master/DefaultKeyBinding.dict
+- https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/EventOverview/TextDefaultsBindings/TextDefaultsBindings.html
+- https://developer.apple.com/documentation/appkit/nsstandardkeybindingresponding
+- https://web.archive.org/web/20170810214857/http://www.hcs.harvard.edu:80/~jrus/Site/cocoa-text.html
+- https://web.archive.org/web/20170812215728/https://www.hcs.harvard.edu/~jrus/site/selectors.html
+
+Key Modifiers:
+
+^ : Ctrl
+$ : Shift
+~ : Option (Alt)
+@ : Command (Apple)
+# : Numeric Keypad
+
+Non-Printable Key Codes:
+
+Up Arrow:     \UF700        Backspace:    \U0008        F1:           \UF704
+Down Arrow:   \UF701        Tab:          \U0009        F2:           \UF705
+Left Arrow:   \UF702        Escape:       \U001B        F3:           \UF706
+Right Arrow:  \UF703        Enter:        \U000A        ...
+Insert:       \UF727        Page Up:      \UF72C
+Delete:       \UF728        Page Down:    \UF72D
+Home:         \UF729        Print Screen: \UF72E
+End:          \UF72B        Scroll Lock:  \UF72F
+Break:        \UF732        Pause:        \UF730
+SysReq:       \UF731        Menu:         \UF735
+*/
+
+{
+    // [⌘][d] Select word
+    "@d" = selectWord:;
+
+    // [⌘][⌥][u] Change to upper case
+    "@~u" = "uppercaseWord:";
+
+    // [⌘][⌥][l] Change to lower case
+    "@~l" = "lowercaseWord:";
+
+    // [⌥][↑] Move line up (https://apple.stackexchange.com/a/371196)
+    "~\UF700" = (
+      "moveToBeginningOfLine:",
+      "deleteToEndOfLine:",
+      "deleteForward:",
+      "moveUp:",
+      "yank:",
+      "insertNewline:",
+      "moveUp:"
+    );
+
+    // [⌥][↓] Move line down (https://apple.stackexchange.com/a/371196)
+    "~\UF701" = (
+      "moveToBeginningOfLine:",
+      "deleteToEndOfLine:",
+      "deleteForward:",
+      "moveDown:",
+      "yank:",
+      "insertNewline:",
+      "moveUp:"
+    );
+
+    // Fix error sound when pressing ctrl-cmd-arrows (https://github.com/atom/atom/issues/1669)
+    "^@\UF700" = (undo:, redo:);
+    "^@\UF701" = (undo:, redo:);
+    "^@\UF702" = (undo:, redo:);
+    "^@\UF703" = (undo:, redo:);
+
+    // Disable custom alt characters (https://superuser.com/questions/941286/disable-default-option-key-binding/942256#942256)
+    // "~a" = ();
+    // "~b" = ();
+    // "~c" = ();
+    // "~d" = ();
+    // "~e" = ();
+    // "~f" = ();
+    // "~g" = ();
+    // "~h" = ();
+    // "~i" = ();
+    // "~j" = ();
+    // "~k" = ();
+    // "~l" = ();
+    // "~m" = ();
+    // "~n" = ();
+    // "~o" = ();
+    // "~p" = ();
+    // "~q" = ();
+    // "~r" = ();
+    // "~s" = ();
+    // "~t" = ();
+    // "~u" = ();
+    // "~v" = ();
+    // "~w" = ();
+    // "~x" = ();
+    // "~y" = ();
+    // "~z" = ();
+
+    // TODO: Move word back
+    // "~\UF702" = "moveWordBackward:";
+
+    // Test
+    // "a"=(insertText:,"test");
+}
