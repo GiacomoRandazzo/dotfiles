@@ -57,9 +57,10 @@ if status is-interactive
     alias ls="exa --icons --across"
     alias ll="exa --icons --long --header --git --all"
     alias la="exa --icons --across --all"
-    alias cat="bat"
-    alias find="fd"
-    alias grep="rg"
+    # ISSUE: Aliasing `find` breaks `tldr`.
+    # alias cat="bat"
+    # alias find="fd"
+    # alias grep="rg"
     alias dotfiles="/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
     alias python="python3"
 
