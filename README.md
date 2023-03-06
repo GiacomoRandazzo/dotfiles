@@ -145,6 +145,14 @@ Refs:
 - https://github.com/CharlesChiuGit/Logseq-Git-Sync-101
 - https://discuss.logseq.com/t/sync-logseq-between-ios-and-pc-with-git/10854
 
+## 1Password
+
+Use 1Password to store dev secrets and SSH keys.
+
+## Refs:
+
+- https://developer.1password.com/
+
 ## Tricks
 
 - **Download Github folders** Open in `github.dev` (navigate to the folder and press `.`).

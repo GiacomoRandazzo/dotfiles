@@ -89,6 +89,17 @@ if status is-interactive
         direnv hook fish | source
     end
 
+
+    #
+    # Activate 1password-cli
+    #
+
+    if type -q op
+        op completion fish | source
+        source ~/.config/op/plugins.sh
+    end
+
+
     #
     # Activate asdf
     #
@@ -99,21 +110,6 @@ if status is-interactive
 
     if test -e $ASDF_DATA_DIR/plugins/java/set-java-home.fish
         source $ASDF_DATA_DIR/plugins/java/set-java-home.fish
-    end
-
-    #
-    # Activate ssh-agent (https://gist.github.com/josh-padnick/c90183be3d0e1feb89afd7573505cab3?permalink_comment_id=3806363#gistcomment-3806363)
-    # Note: The snippets above uses -Ux which sets a Universal exported variable.
-    # Universal variables are stored in `fish_variables` and don't need to be reset
-    # every time. However, what we want is to set -gx which sets a global exported
-    # variable.
-    # Refs:
-    # - https://smallstep.com/blog/ssh-agent-explained/
-    #
-    if test -z (pgrep ssh-agent | string collect)
-    eval (ssh-agent -c)
-        set -gx SSH_AUTH_SOCK $SSH_AUTH_SOCK
-        set -gx SSH_AGENT_PID $SSH_AGENT_PID
     end
 
     #
