@@ -14,6 +14,7 @@
 ;; - navigation bar on space home
 ;; - swap caps lock and escape
 ;; - one-shot shift
+;; - right cmd is -space on tap
 
 (defcfg
   input (iokit-name)
@@ -33,10 +34,21 @@
 (defalias
   ;; Fn
   Fn    (around (layer-toggle function) Fn)
-
-  ;; one-shot shift
-  ;; NOTE: Keep in sync with `lsft'` below.
-  oss  (sticky-key 500 lsft)
+  f1'   (tap-hold 200 brdn f1)
+  f2'   (tap-hold 200 brup f2)
+  f3'   (tap-hold 200 expa f3)
+  f4'   (tap-hold 200 sptl f4)
+  ;; TODO: Missing function keys https://github.com/kmonad/kmonad/issues/418#issuecomment-969106029
+  ;; f5'   (tap-hold 200 _    f5)
+  ;; f6'   (tap-hold 200 _    f6)
+  f5'   f5
+  f6'   f6
+  f7'   (tap-hold 200 prvs f7)
+  f8'   (tap-hold 200 plps f8)
+  f9'   (tap-hold 200 nxsg f9)
+  f10'  (tap-hold 200 mute f10)
+  f11'  (tap-hold 200 vold f11)
+  f12'  (tap-hold 200 volu f12)
 
   ;; Use home row mods
   ctl_a (tap-hold-next-release 200 a lctl)
@@ -54,31 +66,40 @@
   ;; so that the vanilla layer stays activated for the duration of the one-shot
   ;; shift.
   ;; KMonad does not support variables https://github.com/kmonad/kmonad/issues/237
-  lsft' (around (layer-delay 500 vanilla) @oss)
+  ;; lsft' (around (layer-delay 500 vanilla) @oss)
+  lsft' (around (layer-toggle vanilla) lsft)
   lctl' (around (layer-toggle vanilla) lctl)
   lalt' (around (layer-toggle vanilla) lalt)
   lmet' (around (layer-toggle vanilla) lmet)
   rsft' (around (layer-toggle vanilla) rsft)
   ralt' (around (layer-toggle vanilla) ralt)
+  rmet' (around (layer-toggle vanilla) rmet)
+
+  ;; Left shift is one-shot shift on tap, shift on hold
+  oss_  (around (layer-delay 500 vanilla) (sticky-key 500 lsft))
+  ;; ISSUE: Add `lsft` on hold: one-shot shift if tapped, shift on hold.
+  ;; oss   (tap-hold-next-release 200 @oss_ @lsft')
+  ;; This tmp solution sometimes (VSCode) and sometimes does not (Finder).
+  oss @oss_
   ;; Right Cmd is Cmd-Space on tap
-  rmet' (tap-hold-next-release 200 (around rmet spc) (around (layer-toggle vanilla) rmet))
+  cspc_ (around rmet spc)
+  cspc  (tap-hold-next-release 200 @cspc_ @rmet')
 
   ;; Move to line start and move to line end
-  mls (around rmet left)
-  mle (around rmet rght)
+  mls   (around rmet left)
+  mle   (around rmet rght)
 
   ;; Space for navigation layer
-  spc' (tap-hold-next-release 200 spc (layer-toggle navigation))
+  spc'  (tap-hold-next-release 200 spc (layer-toggle navigation))
 )
 
 (deflayer default
-;; TODO: Missing function keys https://github.com/kmonad/kmonad/issues/418#issuecomment-969106029
-  caps   brdn   brup   expa   sptl   _      _      prvs   plps   nxsg   mute   vold   volu
+  caps   @f1'   @f2'   @f3'   @f4'   @f5'   @f6'   @f7'   @f8'   @f9'   @f10'  @f11'  @f12'
   _      _      _      _      _      _      _      _      _      _      _      _      _      _
   _      _      _      _      _      _      _      _      _      _      _      _      _      _
   esc    @ctl_a @alt_s @met_d @sft_f _      _     @sft_j @met_k @alt_l @ctl_;  _      _
-  @lsft' _      _      _      _      _      _      _      _      _      _      @rsft' _
-  @Fn    @lctl' @lalt' @lmet'               @spc'                @rmet' @ralt' _      _      _
+  @oss   _      _      _      _      _      _      _      _      _      _      @rsft' _
+  @Fn    @lctl' @lalt' @lmet'               @spc'                @cspc @ralt' _      _      _
 )
 
 (deflayer function
@@ -98,25 +119,17 @@
   _      _      _      _      _      _      _      _      _      _      _      _      _
   _      _      _      _                    _                    _      _      _      _      _
 )
-(deflayer vanillaShifted
-  _      _      _      _      _      _      _      _      _      _      _      _      _
-  _      _      _      _      _      _      _      _      _      _      _      _      _      _
-  _      _      _      _      _      _      _      _      _      _      _      _      _      _
-  _      a      s      d      f      _      _      j      k      l      ;      _      _
-  _      _      _      _      _      _      _      _      _      _      _      _      _
-  _      _      _      _                    _                    _      _      _      _      _
-)
 
 (deflayer navigation
   _      _      _      _      _      _      _      _      _      _      _      _      _
   _      _      _      _      _      _      _      _      _      _      _      _      _      _
-  _      _      _      _      _      _      pgup   @mls    up     @mle    _      _      _      _
+  _      _      _      _      _      _      pgup   @mls    up    @mle   _      _      _      _
   _      _      _      _      _      _      pgdn   left   down   right  _      _      _
   _      _      _      _      _      _      _      _      _      _      _      _      _
   _      _      _      _                    _                    _      _      _      _      _
 )
 
-;; #: From Andrea's kbd config
+;; #: (Backup) Andrea's kbd config
 
 ;; Run with:
 ;; sudo -E stack --allow-different-user exec kmonad -- -l debug -i "iokit-name" ~/.config/kmonad/layout.kbd
