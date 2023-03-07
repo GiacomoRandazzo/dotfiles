@@ -70,9 +70,13 @@ key_bindings:
   - { key: F, mods: Command, mode: ~Search, action: ReceiveChar }
   - { key: B, mods: Control|Shift, mode: ~Search, action: ReceiveChar }
   - { key: B, mods: Command, mode: ~Search, action: ReceiveChar }
-  # Remap Zellij default Ctrl shortcuts to Cmd
-  # - Zellij locks its shortcuts with Ctrl-g
-  # - map Ctrl-<*> to the sequence Ctrl-G => Ctrl-<*> => Ctrl-G
+  # map [⌘ ←] => "Move to line start"
+  - { key: Left, mods: Command, chars: "\x01" }
+  # map [⌘ →] => "Move to line end"
+  - { key: Right, mods: Command, chars: "\x05" }
+  # Remap Zellij default [⌃ …] shortcuts to [⌘ …]
+  # NOTE: Zellij locks its shortcuts with [⌃ G]
+  # map [⌃ …] => [⌃ G][⌃ …][⌃ G]
   - { key: A, mods: Control, chars: "\x07" }
   - { key: A, mods: Control, chars: "\x01" }
   - { key: A, mods: Control, chars: "\x07" }
@@ -94,9 +98,9 @@ key_bindings:
   - { key: O, mods: Control, chars: "\x07" }
   - { key: O, mods: Control, chars: "\x0F" }
   - { key: O, mods: Control, chars: "\x07" }
-    # - map Cmd-<*> to Ctrl-<*>
-    # WARN: Cmd-H in MacOS hides a window.
-    # To disable the system shortcut follow the instructions at https://github.com/alacritty/alacritty/issues/5346#issuecomment-1055695103
+  # map [⌘ …] => [⌃ …]
+  # WARN: [⌘ H] in MacOS hides a window. To disable the system shortcut follow
+  # the instructions at https://github.com/alacritty/alacritty/issues/5346#issuecomment-1055695103
   - { key: G, mods: Command, chars: "\x07" }
   - { key: P, mods: Command, chars: "\x10" }
   - { key: T, mods: Command, chars: "\x14" }
@@ -104,3 +108,11 @@ key_bindings:
   - { key: H, mods: Command, chars: "\x08" }
   - { key: S, mods: Command, chars: "\x13" }
   - { key: O, mods: Command, chars: "\x0F" }
+  # map [⌥ ←] => "Move one word left"
+  - { key: Left, mods: Alt, chars: "\x1bb" }
+  # map [⌥ →] => "Move one word right"
+  - { key: Right, mods: Alt, chars: "\x1bf" }
+  # map [⌘ ⌥ ←] => [⌥ ←] (Zellij shortcut for navigation)
+  - { key: Left, mods: Command|Alt, chars: "\x1b[1;3D" }
+  # map [⌘ ⌥ →] => [⌥ →] (Zellij shortcut for navigation)
+  - { key: Right, mods: Command|Alt, chars: "\x1b[1;3C" }
