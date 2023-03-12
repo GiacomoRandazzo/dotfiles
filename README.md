@@ -55,6 +55,28 @@ Use `command cat …` to run the un-aliased `cat` command
 - `Ctrl`+`R` to search the command history
 - `Ctrl`+`Alt`+`P` to search for processed
 
+## QMK
+
+My QMK keymaps can be found at: https://github.com/GiacomoRandazzo/qmk_firmware
+
+ISSUE: `brew install qmk/qmk/qmk` is currently broken, but the workaround is to `brew install pkg-config`, see:
+
+- https://github.com/qmk/homebrew-qmk/issues/53
+- https://www.reddit.com/r/ErgoMechKeyboards/comments/10aay3q/comment/j700vr1/?utm_source=share&utm_medium=web2x&context=3
+
+### Kyria
+
+The Kyria uses an Elite-PI microcontroller, running `qmk flash` will not work.
+
+```
+qmk compile -kb kyria -km GiacomoRandazzo
+qmk flash -c -kb kyria -km GiacomoRandazzo -e CONVERT_TO=elite_pi
+```
+
+REFS:
+
+- https://docs.keeb.io/elite-pi-guide
+
 ## KMonad
 
 If KMonad freezes run the commands:
@@ -162,3 +184,4 @@ Use 1Password to store dev secrets and SSH keys.
 - **Symbols and other special chars** (This does not work in the `U.S. No Dead Keys Layout`) From the settings, open the accessibility virtual keyboard and hold [⌥] to view all the special symbols you can insert:
   - • is [⌥][8]
   - — (mdash) is [⌘][⇧][-]
+  - `brew install bluesnooze` to prevent bluetooth connections to wake up the system after "Sleep"
